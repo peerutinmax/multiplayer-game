@@ -488,8 +488,8 @@ function emitMovement(keycode, dx, dy) {
   playerInputs.push({ sequenceNumber, dx, dy });
   socket.emit('keydown', { keycode, sequenceNumber });
 }
-
+module.exports = {updatePlayers, sortPlayersByScore, emitMovement};
 // Initialize the game
 initializeGame();
 
-module.exports = {updatePlayers, sortPlayersByScore, emitMovement};
+
