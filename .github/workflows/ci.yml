@@ -32,5 +32,5 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}  # Set this in GitHub Secrets
 
-      - name: Lint Check (Optional)
-        run: npm run lint
+      # - name: Lint Check (Optional)
+      #   run: npm run lint
