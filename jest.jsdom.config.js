@@ -4,5 +4,6 @@ module.exports = {
   testMatch: [ '<rootDir>/tests/integration/test_frontend.js'],
   collectCoverage: true,
   coverageDirectory: 'coverage/jsdom',
+  collectCoverageFrom: ['<rootDir>/public/js/**/*.js'],
   verbose: true,
 };

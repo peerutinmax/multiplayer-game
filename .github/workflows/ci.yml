@@ -24,8 +24,14 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests with Coverage
+      - name: Run System Tests with Coverage
         run: npm run test:system -- --coverage
+
+      - name: Run Unit Tests with Coverage
+        run: npm run test:node -- --coverage
+
+      - name: Run Integration Tests with Coverage
+        run: npm run test:jsdom -- --coverage  
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4

@@ -4,5 +4,6 @@ module.exports = {
   moduleFileExtensions: ['js', 'json'],
   collectCoverage: true,
   coverageDirectory: 'coverage/node',
+  collectCoverageFrom: ["<rootDir>/public/js/classes/**/*.js", '<rootDir>/backend.js'],
   verbose: true,
 };
