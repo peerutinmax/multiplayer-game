@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.18.2",
+    "puppeteer": "^24.1.1",
     "socket.io": "^4.8.1"
   },
   "devDependencies": {
@@ -23,13 +24,11 @@
   "scripts": {
     "test": "jest",
     "test:integration": "jest tests/integration",
-    "test:system": "jest tests/system",
     "test:ui": "cypress open",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "start": "node server.js",
     "test:jsdom": "jest --config=jest.jsdom.config.js",
     "test:node": "jest --config=jest.node.config.js",
-    "test:all": "npm-run-all --parallel test:jsdom test:node"
+    "start": "node backend.js",
+    "test:system": "npm start & jest --config=jest.system.config.js",
+    "test:all": "npm-run-all --parallel test:jsdom test:node test:system"
   }
 }
