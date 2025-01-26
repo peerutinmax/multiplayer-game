@@ -6,7 +6,8 @@ describe('Multiplayer Game System Tests', () => {
 
   beforeAll(async () => {
     browser = await puppeteer.launch({
-      headless: false, 
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true, 
       slowMo: 50,
     });
     page = await browser.newPage();
