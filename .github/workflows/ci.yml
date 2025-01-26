@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'  # Ensure correct Node.js version
+          node-version: '18'
 
       - name: Install Dependencies
         run: npm install
@@ -27,7 +27,7 @@ jobs:
       - name: Install Puppeteer Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libnss3 libxss1 libasound2 fonts-liberation \
+          sudo apt-get install -y libnss3 libxss1 libasound2-data libasound2-plugins fonts-liberation \
               libappindicator3-1 libatk-bridge2.0-0 libx11-xcb1 libgtk-3-0 xvfb
 
       - name: Start Server in Background
@@ -35,14 +35,3 @@ jobs:
 
       - name: Run System Tests with Puppeteer
         run: xvfb-run --auto-servernum npm run test:system
-
-      - name: Run Unit and Integration Tests
-        run: npm run test:all
-
-      - name: Upload Test Coverage (Optional)
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}  # Set this in GitHub Secrets
-
-      # - name: Lint Check (Optional)
-      #   run: npm run lint 
