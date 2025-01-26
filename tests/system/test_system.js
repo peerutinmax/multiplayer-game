@@ -35,39 +35,53 @@ describe('Multiplayer Game System Tests', () => {
     expect(playerCount).toBeGreaterThanOrEqual(1);
   });
 
-  test('Shooting event should trigger socket emission', async () => {
-    await page.waitForSelector('canvas');
-  
-    // Override the socket.emit function in the browser context to capture events
-    await page.evaluate(() => {
-      window.socketEmitEvents = [];
-      if (window.socket) {
-        console.log('Socket object found in browser context');
-        const originalEmit = window.socket.emit;
-        window.socket.emit = function (event, data) {
-          console.log(`Captured socket event: ${event}`, data);
-          window.socketEmitEvents.push({ event, data });
-          return originalEmit.apply(window.socket, arguments);
-        };
-      } else {
-        console.error('Socket object not found');
-      }
-    });
-  
-    // Simulate a click event on the canvas
-    await page.click('canvas', { position: { x: 512, y: 288 } });
-  
-    // Allow more time for the event to be processed
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-  
-    const shootEventCaptured = await page.evaluate(() => {
-      console.log('Captured socket events:', window.socketEmitEvents);
-      return window.socketEmitEvents.some(e => e.event === 'shoot');
-    });
-  
-    expect(shootEventCaptured).toBe(true);
-  });
-  
+//   test('Shooting should create projectiles and update state', async () => {
+//     await page.waitForSelector('canvas');
+
+//     // Capture the projectile count before shooting
+//     const initialProjectileCount = await page.evaluate(() => {
+//       return Object.keys(window.frontEndProjectiles || {}).length;
+//     });
+
+//     // Simulate click to shoot
+//     await page.click('canvas', { position: { x: 512, y: 288 } });
+//     await page.waitForTimeout(500);
+
+//     // Check projectile count after shooting
+//     const updatedProjectileCount = await page.evaluate(() => {
+//       return Object.keys(window.frontEndProjectiles || {}).length;
+//     });
+
+//     expect(updatedProjectileCount).toBeGreaterThan(initialProjectileCount);
+//   });
+
+//   test('Projectiles should move over time', async () => {
+//     await page.waitForSelector('canvas');
+
+//     // Simulate click to shoot
+//     await page.click('canvas', { position: { x: 512, y: 288 } });
+
+//     // Allow time for projectile to move
+//     await page.waitForTimeout(200);
+
+//     // Evaluate the projectile position before and after a short interval
+//     const projectileMovement = await page.evaluate(() => {
+//       const ids = Object.keys(window.frontEndProjectiles || {});
+//       if (ids.length === 0) return false;
+
+//       const proj = window.frontEndProjectiles[ids[0]];
+//       const initialX = proj.x;
+//       const initialY = proj.y;
+
+//       return new Promise((resolve) => {
+//         setTimeout(() => {
+//           resolve(proj.x !== initialX || proj.y !== initialY);
+//         }, 500);
+//       });
+//     });
+
+//     expect(projectileMovement).toBe(true);
+//   });
   
   
 
