@@ -21,13 +21,10 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Install Puppeteer Dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libnss3 libxss1 libasound2 libatk-bridge2.0-0 \
+          sudo apt-get install -y libnss3 libxss1 libasound2t64 libatk-bridge2.0-0 \
               libx11-xcb1 libgtk-3-0 libgbm-dev xvfb
 
       - name: Kill existing process on port 3000 (if any)
