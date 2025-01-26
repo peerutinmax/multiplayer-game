@@ -25,7 +25,7 @@ jobs:
         run: npm install
 
       - name: Run Tests with Coverage
-        run: npm run test -- --coverage
+        run: npm run test:system -- --coverage
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v4
