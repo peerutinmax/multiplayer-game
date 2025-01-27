@@ -1,3 +1,7 @@
-This is the official repo for the [Chris Courses Online Multiplayer Game Tutorial](https://www.youtube.com/watch?v=Wcvqnx14cZA) available on YouTube.
+This is my Software Testing coursework, in which I use ChrisCourse's Multiplayer Game as the piece of software that I choose to test. 
 
-You can view each episode's progress by selecting this repo's commits individually.
+ChrisCourse's youtube tutorial can be found here: https://www.youtube.com/watch?v=HXquxWtE5vA&list=PLpPnRKq7eNW16Wq1GQjQjpTo_E0taH0La&index=12
+
+ChrisCourse's GitHub repo for the source code can be found here: https://github.com/chriscourses/multiplayer-game
+
+
