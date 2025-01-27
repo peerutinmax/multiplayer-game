@@ -36,54 +36,7 @@ describe('Multiplayer Game System Tests', () => {
     expect(playerCount).toBeGreaterThanOrEqual(1);
   });
 
-//   test('Shooting should create projectiles and update state', async () => {
-//     await page.waitForSelector('canvas');
 
-//     // Capture the projectile count before shooting
-//     const initialProjectileCount = await page.evaluate(() => {
-//       return Object.keys(window.frontEndProjectiles || {}).length;
-//     });
-
-//     // Simulate click to shoot
-//     await page.click('canvas', { position: { x: 512, y: 288 } });
-//     await page.waitForTimeout(500);
-
-//     // Check projectile count after shooting
-//     const updatedProjectileCount = await page.evaluate(() => {
-//       return Object.keys(window.frontEndProjectiles || {}).length;
-//     });
-
-//     expect(updatedProjectileCount).toBeGreaterThan(initialProjectileCount);
-//   });
-
-//   test('Projectiles should move over time', async () => {
-//     await page.waitForSelector('canvas');
-
-//     // Simulate click to shoot
-//     await page.click('canvas', { position: { x: 512, y: 288 } });
-
-//     // Allow time for projectile to move
-//     await page.waitForTimeout(200);
-
-//     // Evaluate the projectile position before and after a short interval
-//     const projectileMovement = await page.evaluate(() => {
-//       const ids = Object.keys(window.frontEndProjectiles || {});
-//       if (ids.length === 0) return false;
-
-//       const proj = window.frontEndProjectiles[ids[0]];
-//       const initialX = proj.x;
-//       const initialY = proj.y;
-
-//       return new Promise((resolve) => {
-//         setTimeout(() => {
-//           resolve(proj.x !== initialX || proj.y !== initialY);
-//         }, 500);
-//       });
-//     });
-
-//     expect(projectileMovement).toBe(true);
-//   });
-  
   
 
   test('Movement keys should trigger player movement', async () => {
